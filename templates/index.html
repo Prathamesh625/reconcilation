@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+
+
+    <style>
+        /* Loader CSS */
+        #loader {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Sit on top of the page content */
+            left: 50%;
+            top: 50%;
+            z-index: 9999;
+            /* High z-index to be on top */
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            /* Safari */
+            animation: spin 2s linear infinite;
+        }
+    
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+    
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+    
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+    
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function showLoader() {
+            document.getElementById("loader").style.display = "block";
+        }
+
+        function hideLoader() {
+            document.getElementById("loader").style.display = "none";
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <div id="loader"></div>
+    <h1>Upload Files</h1>
+    <form action="http://127.0.0.1:5000/upload/files" method="POST" enctype="multipart/form-data">
+        <label for="">Client Data : <input type="file" name="file1" accept=".txt,.csv,.xlsx" required>
+        </label>
+        <label for="">Sheet Name : <input type="text" name="sheetname"  required>
+        
+        </label>
+        <br><br>
+        <label for="">
+            Government Data :
+            <input type="file" name="file2" accept=".txt,.csv,.xlsx" required>
+        </label>
+        <br><br>
+        <button type="submit">Upload Files</button>
+    </form>
+    
+    <hr>
+    <h4>download files</h4>
+    <p><a href="{{ url_for('download') }}">GSTR_ITR_RECONCILATION</a></p>
+</body>
+
+</html>
