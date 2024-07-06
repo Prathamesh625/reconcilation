@@ -9,7 +9,7 @@ def reco_itr_2a(file1, file2, sheet_name):
     # ws['B1'] = 'Particulars'
     # ws['C1'] = 'Date'
     wb.save('CLIENT.xlsx')
-    client = pd.read_excel(file1, sheet_name=sheet_name)
+    client = pd.read_excel(file1, sheet_name='SHUBHAM')
     govern = pd.read_excel(file2, sheet_name='B2B')
     ORIGINAL_GSTR2A = pd.read_excel(file2,sheet_name='B2B')
 
