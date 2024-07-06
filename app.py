@@ -71,8 +71,11 @@ def index():
 
         fun = reco_itr_2a(file1 , file2 ,SHEET_NAME)
         print(fun)
-  
 
+        
+        if file1 and allowed_file(file1.filename) and file2 and allowed_file(file2.filename):
+            return redirect(url_for('index'))
+        
 
         
     # filenames = os.listdir(app.config['UPLOAD_FOLDER'])
