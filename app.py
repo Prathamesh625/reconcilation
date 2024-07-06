@@ -36,10 +36,7 @@ def index():
         file1 = request.files['file1']
         file2 = request.files['file2']
 
-        if os.path.exists('GSTR_ITR_RECO.xlsx'):
-            print('does exist')
-            os.remove('GSTR_ITR_RECO.xlsx')
-            print('GSTR_ITR_RECO.xlsx removed successfully!')
+
 
 
         if os.path.exists(file1.filename):
